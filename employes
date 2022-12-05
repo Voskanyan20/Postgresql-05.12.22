@@ -1,0 +1,39 @@
+-- CREATE TABLE employes (
+-- 	ID SERIAL PRIMARY KEY      NOT NULL,
+-- 	NAME			  CHAR(50) NOT NULL,
+-- 	AGE      		  DATE     NOT NULL,
+-- 	DEPOSIT 		  INT      NOT NULL,
+-- 	PHONE			  INT 	   NOT NULL,
+-- 	MAIL			  CHAR(50) NOT NULL,
+-- 	DEPOSIT_DATE 	  DATE	   NOT NULL
+-- );
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO voskanyan00;
+INSERT INTO employes (NAME,AGE,DEPOSIT,PHONE,MAIL,DEPOSIT_DATE)
+VALUES
+('Levon Petrosyan','1998-09-11',20000,099554455,'levon@gm.com','2021-05-01'),
+('Arman Armanyan','2002-11-12',150000,098031102,'arman@gmail.com','2022-12-01'),
+('Mary Mkhitaryan','2000-10-09',95000,098031102,'mary@gmail.com','2022-11-30'),
+('Karen Militosyan','1999-09-11',50000,091554455,'Karen@gm.com','2012-12-03'),
+('araqs Siradexyan','1991-03-11',230000,099514855,'vano@gm.com','2022-05-03'),
+('Alex Alexanyan','2004-04-01',110000,095041105,'alex@gmail.com','2002-10-04'),
+('Lana Chilingaryan','2005-12-26',5000,099554455,'lana@gm.com','2018-06-05'),
+('Levon Martirosyan','1992-09-11',20100,099114455,'levon@mail.ru','2020-05-01'),
+('Levon Petrosyan','1998-09-11',20540,099554455,'jj@gm.com','2014-05-01'),
+('Arman Armanyan','2002-11-12',150000,098031102,'zzgmail.com','2013-09-15'),
+('Levon Petrosyan','1998-09-11',200460,099554455,'kk@gm.com','2016-05-01'),
+('Levon Petrosyan','1998-09-11',200456,099554455,'mm@gm.com','2001-05-01'),
+('Levon Petrosyan','1998-09-11',27981,099554455,'la@gm.com','2005-05-01'),
+('Arman Armanyan','2002-11-12',19874,098031102,'ll@gmail.com','2002-09-15'),
+('Levon Petrosyan','1998-09-11',45900,099554455,'n@gm.com','2019-05-01'),
+('Levon Petrosyan','1998-09-11',7789,099554455,'ha@gm.com','2014-05-01');
+
+
+SELECT * FROM employes WHERE DEPOSIT <= 40000; 
+SELECT * FROM employes WHERE DEPOSIT_DATE >= now() - interval '1 week' AND AGE <= timestamp '2004-01-01';
+SELECT * FROM employes NAME;
+SELECT * FROM employes WHERE DEPOSIT_DATE >= now() - interval '1 month';
+SELECT * FROM employes
+WHERE DEPOSIT = (
+	SELECT MAX(DEPOSIT)
+	FROM employes
+);
